@@ -28,6 +28,10 @@ Para contribuir com este projeto, siga estas etapas:
 6. Faça push para a branch (`git push origin minha-contribuicao`).
 7. Crie um pull request detalhando suas mudanças.
 
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE) - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
 ## Contato
 
 Para mais informações sobre o projeto, entre em contato com o desenvolvedor responsável através do email [gustavofortunatoo123@gmail.com](mailto:gustavofortunatoo123@gmail.com).

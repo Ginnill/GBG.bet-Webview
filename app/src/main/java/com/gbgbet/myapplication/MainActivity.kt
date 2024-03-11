@@ -1,19 +1,13 @@
 package com.gbgbet.myapplication
 
-import android.app.DownloadManager
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.appsflyer.AppsFlyerLib
-import org.json.JSONArray
-import org.json.JSONException
-import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,23 +52,24 @@ class MainActivity : AppCompatActivity() {
                             val pair = param.split("=")
                             val key = pair[0]
                             if (pair.size > 1) {
-                                if ("eventName" == key) {
-                                    eventName = pair[1]
-                                } else if ("eventValue" == key) {
-                                    try {
-                                        val event = JSONObject(pair[1])
-                                        val keys: JSONArray = event.names()
-                                        for (i in 0 until keys.length()) {
-                                            val keyName = keys.getString(i)
-                                            eventValue[keyName] = event.getString(keyName)
-                                        }
-                                    } catch (e: JSONException) {
-                                        e.printStackTrace()
-                                    }
-                                }
+                                val value = pair[1]
+                                eventValue[key] = value // Adiciona o parâmetro ao mapa de valores do evento
                             }
                         }
-                        AppsFlyerLib.getInstance().logEvent(applicationContext, eventName, eventValue)
+
+                        // Verifica o nome do evento para os eventos específicos que você deseja rastrear
+                        eventName = when (eventValue["eventName"]) {
+                            "af_login" -> "af_login"
+                            "af_complete_registration" -> "af_complete_registration"
+                            "af_first_purchase" -> "af_first_purchase"
+                            "af_purchase" -> "af_purchase"
+                            else -> null
+                        }
+
+                        // Se o evento é um dos eventos que você deseja rastrear, envie-o para o AppsFlyer
+                        if (eventName != null) {
+                            AppsFlyerLib.getInstance().logEvent(applicationContext, eventName, eventValue)
+                        }
                     }
                     return true
                 }

@@ -1,4 +1,4 @@
-package com.gbgbet.myapplication.ui.theme
+package com.bralixxac.nozxaa.ui.theme
 
 import android.app.Activity
 import android.os.Build

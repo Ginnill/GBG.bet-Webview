@@ -1,4 +1,4 @@
-package com.gbgbet.myapplication
+package com.bralixxac.nozxaa
 
 import org.junit.Test
 

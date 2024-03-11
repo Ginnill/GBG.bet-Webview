@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.gbgbet.myapplication'
+    namespace 'com.bralixxac.nozxaa'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.gbgbet.myapplication"
+        applicationId "com.bralixxac.nozxaa"
         minSdk 24
         targetSdk 34
         versionCode 1

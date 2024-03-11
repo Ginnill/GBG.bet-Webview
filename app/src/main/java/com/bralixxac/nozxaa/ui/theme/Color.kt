@@ -1,4 +1,4 @@
-package com.gbgbet.myapplication.ui.theme
+package com.bralixxac.nozxaa.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
